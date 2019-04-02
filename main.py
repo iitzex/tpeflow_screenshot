@@ -7,7 +7,9 @@ from pyppeteer import launch
 SCREENSHOT = 'screenshot'
 
 async def capture():
-    browser = await launch()
+    # browser = await launch()
+    browser = await launch(headless=True, executablePath='/usr/bin/chromium-browser') 
+
     page = await browser.newPage()
     await page.setViewport({'width': 850, 'height': 600})
     addr = 'https://tpeflow.herokuapp.com/'
